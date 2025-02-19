@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartinha e Foto Polaroid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Estrelas cadentes -->
+    <div class="cading-star"></div>
+    <div class="cading-star"></div>
+    <div class="cading-star"></div>
+    <div class="cading-star"></div>
+    <div class="cading-star"></div>
+
+    <!-- Sua carta -->
+    <div class="valentines-day-card">
+        <input id="open" type="checkbox">
+        <label class="open" for="open"></label>
+        <div class="card-front">
+            <div class="note">Clique aqui!</div>
+        </div>
+
+        <div class="card-inside">
+            <div class="text-one" id="text-one">FELIZ 2 MESES!!</div>
+            <div class="heart"></div>
+            <div class="smile"></div>
+            <div class="eyes"></div>
+        </div>
+    </div>
+
+    <!-- Foto Polaroid -->
+    <div class="polaroid">
+        <img src="foto.jpg" alt="Foto do casal">
+    </div>
+
+    <!-- Botão de Play -->
+    <div class="play-button-container">
+        <button onclick="document.getElementById('bg-music').play()">🎵 Tocar Música!</button>
+    </div>
+
+    <!-- Música de fundo -->
+    <audio id="bg-music" autoplay loop>
+        <source src="love.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <script>
+        // Função de mudança da mensagem da carta
+        document.getElementById("open").addEventListener("change", function() {
+            document.querySelector('.polaroid').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
+
+    <script>
+        // Array com diferentes mensagens
+        const messages = [
+            "FELIZ 2 MESES!!",
+            "Cada dia ao seu lado é especial!",
+            "2 meses de felicidade! <3",
+            "Que venham muitos mais meses assim!",
+            "Cada dia ao seu lado é especial!",
+        ];
+
+        // Função para mudar o texto aleatoriamente
+        function changeMessage() {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById("text-one").textContent = randomMessage;
+        }
+
+        // Executa a mudança de mensagem quando a carta for aberta
+        document.getElementById("open").addEventListener("change", changeMessage);
+    </script>
+</body>
+</html>
